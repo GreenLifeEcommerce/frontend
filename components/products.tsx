@@ -11,7 +11,7 @@ function Products() {
   return (
     <section className="w-full py-12">
       <div className="container mx-auto px-4 py-4 md:py-6 md:px-8">
-        <h1 className="text-3xl font-bold mb-8">All Products</h1>
+        <h1 className="text-3xl font-bold mb-8">Tất Cả Sản Phẩm</h1>
 
         {/* Display the products in a responsive grid layout */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">

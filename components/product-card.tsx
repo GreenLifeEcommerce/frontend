@@ -9,7 +9,7 @@ import { Product } from "@/lib/types";
 import { ShoppingCart } from "lucide-react";
 
 interface ProductCardProps {
-  product: Product
+  product: Product;
 }
 
 /**
@@ -44,7 +44,9 @@ function ProductCard({ product }: ProductCardProps) {
         {/* Product category */}
         <p className="text-sm text-gray-500 mt-1">{product.category}</p>
         {/* Product price */}
-        <p className="font-medium text-lg mt-2">${product.price.toFixed(2)}</p>
+        <p className="font-medium text-lg mt-2">
+          {product.price.toLocaleString()}đ
+        </p>
       </CardContent>
       <CardFooter className="p-4">
         {/* Button to add the product to the cart */}
@@ -54,7 +56,7 @@ function ProductCard({ product }: ProductCardProps) {
           variant="outline"
         >
           <ShoppingCart className="mr-2 h-4 w-4" />
-          Add to Cart
+          Thêm vào giỏ
         </Button>
       </CardFooter>
     </Card>

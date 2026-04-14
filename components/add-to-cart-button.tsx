@@ -16,7 +16,10 @@ interface ProductCartProps {
  * @param product - The product to add to the cart.
  * @param className - Additional classes for styling the button.
  */
-export default function AddToCartButton({ product, className }: ProductCartProps) {
+export default function AddToCartButton({
+  product,
+  className,
+}: ProductCartProps) {
   const { addToCart } = useCart();
 
   /**
@@ -29,7 +32,7 @@ export default function AddToCartButton({ product, className }: ProductCartProps
   return (
     <Button onClick={handleAddToCart} className={className}>
       <ShoppingCart className="mr-2" />
-      Add To Cart
+      Thêm vào giỏ hàng
     </Button>
   );
 }
