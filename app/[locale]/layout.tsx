@@ -6,6 +6,7 @@ import { NextIntlClientProvider } from "next-intl";
 import { getMessages, setRequestLocale } from "next-intl/server";
 import { routing } from "@/i18n/routing";
 import { notFound } from "next/navigation";
+import { Analytics } from "@vercel/analytics/next";
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -42,7 +43,10 @@ export default async function RootLayout({
       <body className={`antialiased`}>
         <NextIntlClientProvider messages={messages}>
           <AuthProvider>
-            <CartProvider>{children}</CartProvider>
+            <CartProvider>
+              {children}
+              <Analytics />
+            </CartProvider>
           </AuthProvider>
         </NextIntlClientProvider>
       </body>
