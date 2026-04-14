@@ -1,12 +1,15 @@
-import { getProductById } from "@/lib/data";
+import { getAllProducts, getProductById } from "@/lib/data";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import AddToCartButton from "@/components/add-to-cart-button";
 
-interface Params {
-  id: string;
+export async function generateStaticParams() {
+  const products = getAllProducts();
+  return products.map((product) => ({
+    id: product.id,
+  }));
 }
 
 /**
@@ -17,7 +20,7 @@ interface Params {
 export default async function SingleProductPage({
   params,
 }: {
-  params: Params;
+  params: Promise<{ id: string }>;
 }) {
   const { id } = await params;
 

@@ -1,13 +1,24 @@
 import Footer from "@/components/footer";
 import Navbar from "@/components/navbar";
 import ProductCard from "@/components/product-card";
-import { getCategoryBySlug, getProductsByCategory } from "@/lib/data";
+import {
+  getAllCategories,
+  getCategoryBySlug,
+  getProductsByCategory,
+} from "@/lib/data";
 import { notFound } from "next/navigation";
 
+export async function generateStaticParams() {
+  const categories = getAllCategories();
+  return categories.map((category) => ({
+    slug: category.slug,
+  }));
+}
+
 interface CategoryPageProps {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
 async function CategoryPage({ params }: CategoryPageProps) {
