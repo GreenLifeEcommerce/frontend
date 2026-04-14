@@ -51,26 +51,28 @@ export default function CartSheet() {
       </SheetTrigger>
       <SheetContent className="w-full sm:max-w-md">
         <SheetHeader>
-          <SheetTitle>Shopping Cart ({totalItems})</SheetTitle>
+          <SheetTitle>Giỏ hàng ({totalItems})</SheetTitle>
         </SheetHeader>
 
         {totalItems === 0 ? (
           <div className="flex flex-col items-center justify-center h-full space-y-4">
             <ShoppingBag className="h-12 w-12 text-muted-foreground" />
             <div className="text-center">
-              <h3 className="text-lg font-medium">Your cart is empty</h3>
+              <h3 className="text-lg font-medium">
+                Giỏ hàng của bạn đang trống
+              </h3>
               <p className="text-sm text-muted-foreground mt-1">
-                Add some products to your cart to see them here.
+                Hãy thêm sản phẩm vào giỏ hàng để tiếp tục.
               </p>
             </div>
             <Button asChild>
-              <Link href="/products">Continue Shopping</Link>
+              <Link href="/products">Tiếp tục mua sắm</Link>
             </Button>
           </div>
         ) : (
           <>
             <ScrollArea className="h-[65vh]">
-              <div className="space-y-4 px-8">
+              <div className="space-y-4 px-8 pt-4">
                 {items.map((item, index) => (
                   <div key={index} className="flex items-center space-x-4">
                     <div className="relative h-16 w-16 overflow-hidden rounded">
@@ -82,14 +84,18 @@ export default function CartSheet() {
                       />
                     </div>
                     <div className="flex-1 space-y-1">
-                      <h4 className="font-medium">{item.name}</h4>
-                      <p className="text-sm text-muted-foreground">
-                        {item.price}
+                      <h4 className="font-medium text-sm">{item.name}</h4>
+                      <p className="text-xs text-muted-foreground">
+                        {item.price.toLocaleString()}đ
                       </p>
                     </div>
-                    <Button onClick={() => removeFromCart(item.id)} variant="ghost" size="icon">
+                    <Button
+                      onClick={() => removeFromCart(item.id)}
+                      variant="ghost"
+                      size="icon"
+                    >
                       <X className="h-4 w-4" />
-                      <span className="sr-only">Remove</span>
+                      <span className="sr-only">Xóa</span>
                     </Button>
                   </div>
                 ))}
@@ -100,18 +106,24 @@ export default function CartSheet() {
             <Separator />
             <div className="space-y-4 mt-4 px-8">
               <div className="flex items-center justify-between">
-                <span className="font-medium">Subtotal</span>
-                <span className="font-medium">{Math.round(subtotal * 100) / 100}</span>
+                <span className="font-medium">Tổng cộng</span>
+                <span className="font-medium">
+                  {subtotal.toLocaleString()}đ
+                </span>
               </div>
-              <p className="text-sm text-muted-foreground">
-                Shipping and taxes calculated at checkout.
+              <p className="text-sm text-muted-foreground italic">
+                Phí vận chuyển và thuế sẽ được tính khi thanh toán.
               </p>
               <div className="space-y-2">
                 <Button asChild className="w-full">
-                  <Link href="/checkout">Checkout</Link>
+                  <Link href="/checkout">Thanh toán</Link>
                 </Button>
-                <Button variant="outline" className="w-full" onClick={() => clearCart()}>
-                  Clear Cart
+                <Button
+                  variant="outline"
+                  className="w-full"
+                  onClick={() => clearCart()}
+                >
+                  Xóa giỏ hàng
                 </Button>
               </div>
             </div>

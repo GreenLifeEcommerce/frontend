@@ -60,13 +60,13 @@ export default async function SingleProductPage({
 
               {/* The product price */}
               <p className="text-xl text-gray-800 font-semibold">
-                ${product.price.toFixed(2)}
+                {product.price.toLocaleString()}đ
               </p>
 
               {/* The product description */}
               <div>
                 <h3 className="text-lg font-medium text-gray-800">
-                  Description
+                  Mô tả sản phẩm
                 </h3>
                 <p className="text-gray-600 mt-2">{product.description}</p>
               </div>

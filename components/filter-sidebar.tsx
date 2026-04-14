@@ -13,7 +13,6 @@ import {
 } from "@/components/ui/accordion";
 import { Category } from "@/lib/types";
 
-
 interface FilterSidebarProps {
   categories: Category[];
   selectedCategories: string[];
@@ -54,14 +53,14 @@ function FilterSidebar({
   return (
     <div className="space-y-6">
       <div>
-        <h3 className="text-lg font-medium mb-4">Filters</h3>
+        <h3 className="text-lg font-medium mb-4">Bộ lọc</h3>
         <Button
           variant="outline"
           size="sm"
           onClick={onClearFilters}
           className="w-full"
         >
-          Clear All Filters
+          Xóa tất cả bộ lọc
         </Button>
       </div>
 
@@ -73,7 +72,7 @@ function FilterSidebar({
         className="w-full"
       >
         <AccordionItem value="categories">
-          <AccordionTrigger>Categories</AccordionTrigger>
+          <AccordionTrigger>Danh mục</AccordionTrigger>
           <AccordionContent>
             <div className="space-y-3">
               {categories.map((category) => (
@@ -96,26 +95,26 @@ function FilterSidebar({
         </AccordionItem>
 
         <AccordionItem value="price">
-          <AccordionTrigger>Price Range</AccordionTrigger>
+          <AccordionTrigger>Khoảng giá</AccordionTrigger>
           <AccordionContent>
             <div className="space-y-4">
               <Slider
                 defaultValue={[minPrice, maxPrice]}
                 min={minPrice}
                 max={maxPrice}
-                step={1}
+                step={1000}
                 value={priceRange}
                 onValueChange={(value) =>
                   onPriceChange(value as [number, number])
                 }
                 className="mt-6"
               />
-              <div className="flex items-center justify-between">
-                <div className="border rounded-md px-2 py-1 w-20">
-                  ${priceRange[0]}
+              <div className="flex items-center justify-between text-xs">
+                <div className="border rounded-md px-2 py-1">
+                  {priceRange[0].toLocaleString()}đ
                 </div>
-                <div className="border rounded-md px-2 py-1 w-20 text-right">
-                  ${priceRange[1]}
+                <div className="border rounded-md px-2 py-1 text-right">
+                  {priceRange[1].toLocaleString()}đ
                 </div>
               </div>
             </div>

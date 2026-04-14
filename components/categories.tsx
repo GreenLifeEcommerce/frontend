@@ -13,9 +13,7 @@ function Categories() {
   return (
     <section className="w-full py-12">
       <div className="container mx-auto px-4 py-4 md:py-6 md:px-8">
-        <h2 className="text-3xl font-bold mb-8">
-          Shop by Category
-        </h2>
+        <h2 className="text-3xl font-bold mb-8">Danh Mục Sản Phẩm</h2>
         {/* Display the categories in a grid. */}
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           {categories.map((category) => (

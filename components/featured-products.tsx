@@ -17,7 +17,7 @@ function FeaturedProducts() {
       <div className="container mx-auto px-4 py-4 md:py-6 md:px-8">
         {/* Section heading */}
         <h2 className="text-2xl font-bold tracking-tight mb-6">
-          Featured Products
+          Sản Phẩm Nổi Bật
         </h2>
         {/* Grid layout for featured products */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
