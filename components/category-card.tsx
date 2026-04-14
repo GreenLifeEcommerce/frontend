@@ -1,6 +1,8 @@
-import { Category } from "@/lib/types";
+"use client";
+
+import { Category } from "@/types";
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
 import { Card, CardContent } from "./ui/card";
 
 interface CategoryCardProps {
@@ -10,13 +12,10 @@ interface CategoryCardProps {
 /**
  * CategoryCard component displays a category with an image, name, and a link
  * to the category's page.
- *
- * @param {CategoryCardProps} props - Props containing the category details.
- * @returns {JSX.Element} The rendered CategoryCard component.
  */
 function CategoryCard({ category }: CategoryCardProps) {
   return (
-    <Link href={`categories/${category.slug}`}>
+    <Link href={`/categories/${category.slug}`}>
       <Card className="overflow-hidden transition-all hover:shadow-md py-0 gap-0">
         <div className="aspect-square relative">
           <Image

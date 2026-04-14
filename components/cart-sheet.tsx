@@ -1,3 +1,5 @@
+"use client";
+
 import { ShoppingBag, X } from "lucide-react";
 import { Button } from "./ui/button";
 import {
@@ -7,31 +9,16 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "./ui/sheet";
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
 import { ScrollArea } from "./ui/scroll-area";
 import Image from "next/image";
 import { Separator } from "./ui/separator";
 import { useCart } from "@/hooks/use-cart";
+import { useTranslations } from "next-intl";
 
-/**
- * The `CartSheet` component is a sheet that can be opened with a trigger button
- * and contains a list of items in the cart. It also displays the subtotal of
- * the items and provides a link to checkout.
- *
- * When the cart is empty, it displays a message and a button to continue shopping.
- *
- * When the cart is not empty, it displays a list of items with their names,
- * prices and a button to remove them from the cart. It also displays the subtotal
- * of the items and provides a link to checkout.
- *
- * The `CartSheet` component is connected to the `useCart` hook, which provides
- * the items in the cart and functions to remove items and clear the cart.
- *
- * The `CartSheet` component is a higher-order component, which means it wraps
- * the provided `children` with a `Sheet` component.
- */
 export default function CartSheet() {
   const { items, removeFromCart, clearCart } = useCart();
+  const t = useTranslations("Cart");
 
   const totalItems = items.length;
   const subtotal = items.reduce((total, item) => total + item.price, 0);
@@ -46,27 +33,27 @@ export default function CartSheet() {
               {totalItems}
             </span>
           )}
-          <span className="sr-only">Open cart</span>
+          <span className="sr-only">{t("title")}</span>
         </Button>
       </SheetTrigger>
       <SheetContent className="w-full sm:max-w-md">
         <SheetHeader>
-          <SheetTitle>Giỏ hàng ({totalItems})</SheetTitle>
+          <SheetTitle>
+            {t("title")} ({totalItems})
+          </SheetTitle>
         </SheetHeader>
 
         {totalItems === 0 ? (
           <div className="flex flex-col items-center justify-center h-full space-y-4">
             <ShoppingBag className="h-12 w-12 text-muted-foreground" />
-            <div className="text-center">
-              <h3 className="text-lg font-medium">
-                Giỏ hàng của bạn đang trống
-              </h3>
+            <div className="text-center px-4">
+              <h3 className="text-lg font-medium">{t("empty")}</h3>
               <p className="text-sm text-muted-foreground mt-1">
-                Hãy thêm sản phẩm vào giỏ hàng để tiếp tục.
+                {t("emptyDesc")}
               </p>
             </div>
             <Button asChild>
-              <Link href="/products">Tiếp tục mua sắm</Link>
+              <Link href="/products">{t("continueShopping")}</Link>
             </Button>
           </div>
         ) : (
@@ -95,7 +82,7 @@ export default function CartSheet() {
                       size="icon"
                     >
                       <X className="h-4 w-4" />
-                      <span className="sr-only">Xóa</span>
+                      <span className="sr-only">{t("remove")}</span>
                     </Button>
                   </div>
                 ))}
@@ -106,24 +93,24 @@ export default function CartSheet() {
             <Separator />
             <div className="space-y-4 mt-4 px-8">
               <div className="flex items-center justify-between">
-                <span className="font-medium">Tổng cộng</span>
+                <span className="font-medium">{t("subtotal")}</span>
                 <span className="font-medium">
                   {subtotal.toLocaleString()}đ
                 </span>
               </div>
               <p className="text-sm text-muted-foreground italic">
-                Phí vận chuyển và thuế sẽ được tính khi thanh toán.
+                {t("shippingDesc")}
               </p>
               <div className="space-y-2">
                 <Button asChild className="w-full">
-                  <Link href="/checkout">Thanh toán</Link>
+                  <Link href="/checkout">{t("checkout")}</Link>
                 </Button>
                 <Button
                   variant="outline"
                   className="w-full"
                   onClick={() => clearCart()}
                 >
-                  Xóa giỏ hàng
+                  {t("clearCart")}
                 </Button>
               </div>
             </div>

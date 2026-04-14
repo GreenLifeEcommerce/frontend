@@ -2,10 +2,10 @@
 
 import Image from "next/image";
 import { Card, CardContent, CardFooter } from "./ui/card";
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
 import { Button } from "./ui/button";
 import { useCart } from "@/hooks/use-cart";
-import { Product } from "@/lib/types";
+import { Product } from "@/types";
 import { ShoppingCart } from "lucide-react";
 
 interface ProductCardProps {

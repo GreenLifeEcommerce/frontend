@@ -11,7 +11,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { Category } from "@/lib/types";
+import { Category } from "@/types";
 
 interface FilterSidebarProps {
   categories: Category[];

@@ -1,21 +1,22 @@
+"use client";
+
+import { useTranslations } from "next-intl";
 
 /**
  * Footer component.
- *
- * This component renders the footer of the application.
- *
- * @returns {JSX.Element}
  */
 function Footer() {
+  const t = useTranslations("Footer");
+  const year = new Date().getFullYear();
+
   return (
     <footer className="border-t py-6">
       {/* Footer text */}
       <p className="text-center text-sm leading-loose text-muted-foreground">
-        {/* Copyright symbol */}
-        &copy; 2026 Green Life. All rights reserved.
+        {t("copyright", { year })}
       </p>
     </footer>
   );
-};
+}
 
 export default Footer;
