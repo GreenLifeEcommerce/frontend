@@ -1,0 +1,80 @@
+{
+  "Navbar": {
+    "home": "Trang chủ",
+    "products": "Sản phẩm",
+    "categories": "Danh mục",
+    "search": "Tìm kiếm",
+    "login": "Đăng nhập",
+    "register": "Đăng ký",
+    "profile": "Tài khoản",
+    "logout": "Đăng xuất",
+    "cart": "Giỏ hàng"
+  },
+  "Hero": {
+    "title": "Sống Xanh Cùng Green Life",
+    "description": "Khám phá bộ sưu tập các sản phẩm thân thiện với môi trường, bền vững và chất lượng cao.",
+    "cta": "Mua ngay"
+  },
+  "Categories": {
+    "title": "Danh Mục Sản Phẩm"
+  },
+  "FeaturedProducts": {
+    "title": "Sản Phẩm Nổi Bật"
+  },
+  "Products": {
+    "title": "Tất Cả Sản Phẩm",
+    "noProducts": "Không tìm thấy sản phẩm nào"
+  },
+  "ProductDetail": {
+    "description": "Mô tả sản phẩm",
+    "addToCart": "Thêm vào giỏ hàng"
+  },
+  "Cart": {
+    "title": "Giỏ hàng",
+    "empty": "Giỏ hàng của bạn đang trống",
+    "emptyDesc": "Hãy thêm sản phẩm vào giỏ hàng để tiếp tục.",
+    "continueShopping": "Tiếp tục mua sắm",
+    "subtotal": "Tổng cộng",
+    "shippingDesc": "Phí vận chuyển và thuế sẽ được tính khi thanh toán.",
+    "checkout": "Thanh toán",
+    "clearCart": "Xóa giỏ hàng",
+    "remove": "Xóa"
+  },
+  "Filters": {
+    "title": "Bộ lọc",
+    "clearAll": "Xóa tất cả bộ lọc",
+    "categories": "Danh mục",
+    "priceRange": "Khoảng giá"
+  },
+  "Search": {
+    "title": "Tìm kiếm sản phẩm",
+    "placeholder": "Tìm kiếm sản phẩm...",
+    "results": "Tìm thấy {count} sản phẩm",
+    "noResults": "Không tìm thấy sản phẩm",
+    "noResultsDesc": "Hãy thử điều chỉnh bộ lọc hoặc từ khóa tìm kiếm"
+  },
+  "Newsletter": {
+    "title": "Đăng Ký Nhận Bản Tin Xanh",
+    "description": "Nhận thông tin mới nhất về các sản phẩm bền vững và mẹo sống xanh mỗi ngày.",
+    "placeholder": "Nhập email của bạn",
+    "subscribe": "Đăng ký"
+  },
+  "Footer": {
+    "copyright": "© {year} Green Life. Mọi quyền được bảo lưu."
+  },
+  "Auth": {
+    "loginTitle": "Đăng nhập",
+    "loginDesc": "Chào mừng bạn quay lại với Green Life",
+    "registerTitle": "Đăng ký",
+    "registerDesc": "Tham gia cộng đồng sống xanh",
+    "name": "Họ và tên",
+    "email": "Email",
+    "password": "Mật khẩu",
+    "forgotPassword": "Quên mật khẩu?",
+    "noAccount": "Chưa có tài khoản?",
+    "hasAccount": "Đã có tài khoản?",
+    "profileTitle": "Thông tin cá nhân",
+    "profileDesc": "Quản lý thông tin tài khoản của bạn",
+    "save": "Lưu thay đổi"
+  }
+}

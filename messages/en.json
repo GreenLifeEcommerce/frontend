@@ -1,0 +1,80 @@
+{
+  "Navbar": {
+    "home": "Home",
+    "products": "Products",
+    "categories": "Categories",
+    "search": "Search",
+    "login": "Login",
+    "register": "Register",
+    "profile": "Profile",
+    "logout": "Logout",
+    "cart": "Cart"
+  },
+  "Hero": {
+    "title": "Eco-friendly Living with Green Life",
+    "description": "Discover our collection of environmentally friendly, sustainable, and high-quality products.",
+    "cta": "Shop Now"
+  },
+  "Categories": {
+    "title": "Shop by Category"
+  },
+  "FeaturedProducts": {
+    "title": "Featured Products"
+  },
+  "Products": {
+    "title": "All Products",
+    "noProducts": "No products found"
+  },
+  "ProductDetail": {
+    "description": "Description",
+    "addToCart": "Add to cart"
+  },
+  "Cart": {
+    "title": "Shopping Cart",
+    "empty": "Your cart is empty",
+    "emptyDesc": "Add some products to your cart to see them here.",
+    "continueShopping": "Continue Shopping",
+    "subtotal": "Subtotal",
+    "shippingDesc": "Shipping and taxes calculated at checkout.",
+    "checkout": "Checkout",
+    "clearCart": "Clear Cart",
+    "remove": "Remove"
+  },
+  "Filters": {
+    "title": "Filters",
+    "clearAll": "Clear All Filters",
+    "categories": "Categories",
+    "priceRange": "Price Range"
+  },
+  "Search": {
+    "title": "Search Products",
+    "placeholder": "Search products...",
+    "results": "{count} products found",
+    "noResults": "No products found",
+    "noResultsDesc": "Try adjusting your search or filter criteria"
+  },
+  "Newsletter": {
+    "title": "Subscribe to Our Newsletter",
+    "description": "Stay updated with our latest products and exclusive offers.",
+    "placeholder": "Enter your email",
+    "subscribe": "Subscribe"
+  },
+  "Footer": {
+    "copyright": "© {year} Green Life. All rights reserved."
+  },
+  "Auth": {
+    "loginTitle": "Login",
+    "loginDesc": "Welcome back to Green Life",
+    "registerTitle": "Register",
+    "registerDesc": "Join the green community",
+    "name": "Full name",
+    "email": "Email",
+    "password": "Password",
+    "forgotPassword": "Forgot password?",
+    "noAccount": "Don't have an account?",
+    "hasAccount": "Already have an account?",
+    "profileTitle": "Profile Info",
+    "profileDesc": "Manage your account information",
+    "save": "Save Changes"
+  }
+}

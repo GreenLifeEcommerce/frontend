@@ -1,6 +1,6 @@
 "use client";
 
-import { Product } from "@/lib/types";
+import { Product } from "@/types";
 import {
   createContext,
   ReactNode,

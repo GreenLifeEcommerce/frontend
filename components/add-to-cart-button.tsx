@@ -3,7 +3,7 @@
 import { useCart } from "@/hooks/use-cart";
 import { Button } from "@/components/ui/button";
 import { ShoppingCart } from "lucide-react";
-import { Product } from "@/lib/types";
+import { Product } from "@/types";
 
 interface ProductCartProps {
   product: Product;

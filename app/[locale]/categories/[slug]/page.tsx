@@ -7,6 +7,8 @@ import {
   getProductsByCategory,
 } from "@/lib/data";
 import { notFound } from "next/navigation";
+import { useTranslations } from "next-intl";
+import { Category, Product } from "@/types";
 
 export async function generateStaticParams() {
   const categories = getAllCategories();
@@ -18,10 +20,11 @@ export async function generateStaticParams() {
 interface CategoryPageProps {
   params: Promise<{
     slug: string;
+    locale: string;
   }>;
 }
 
-async function CategoryPage({ params }: CategoryPageProps) {
+export default async function CategoryPage({ params }: CategoryPageProps) {
   const { slug } = await params;
   const category = getCategoryBySlug(slug);
 
@@ -30,6 +33,18 @@ async function CategoryPage({ params }: CategoryPageProps) {
   }
 
   const products = getProductsByCategory(category.name);
+
+  return <CategoryContent category={category} products={products} />;
+}
+
+function CategoryContent({
+  category,
+  products,
+}: {
+  category: Category;
+  products: Product[];
+}) {
+  const t = useTranslations("Products");
 
   return (
     <>
@@ -40,9 +55,7 @@ async function CategoryPage({ params }: CategoryPageProps) {
 
           {products.length === 0 ? (
             <div className="text-center py-12">
-              <h2 className="text-xl font-medium">
-                No products found in this category
-              </h2>
+              <h2 className="text-xl font-medium">{t("noProducts")}</h2>
             </div>
           ) : (
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
@@ -57,5 +70,3 @@ async function CategoryPage({ params }: CategoryPageProps) {
     </>
   );
 }
-
-export default CategoryPage;

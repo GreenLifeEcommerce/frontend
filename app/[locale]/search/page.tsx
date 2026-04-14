@@ -4,7 +4,7 @@ import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 
 import { getAllCategories, getAllProducts } from "@/lib/data";
-import { Product } from "@/lib/types";
+import { Product } from "@/types";
 import ProductCard from "@/components/product-card";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
@@ -14,15 +14,18 @@ import FilterSidebar from "@/components/filter-sidebar";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import { Suspense } from "react";
+import { useTranslations } from "next-intl";
 
 function SearchContent() {
   const searchParams = useSearchParams();
   const initialQuery = searchParams.get("q") || "";
+  const t = useTranslations("Search");
+  const f = useTranslations("Filters");
 
   const [searchQuery, setSearchQuery] = useState(initialQuery);
 
   const [filteredProducts, setFilteredProducts] = useState<Product[]>([]);
-  const [priceRange, setPriceRange] = useState<[number, number]>([0, 300]);
+  const [priceRange, setPriceRange] = useState<[number, number]>([0, 1000000]);
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
 
   const categories = getAllCategories();
@@ -95,12 +98,12 @@ function SearchContent() {
           <div className="flex flex-col space-y-4 md:space-y-0 md:flex-row md:gap-6">
             {/* Mobile Filter Button */}
             <div className="flex md:hidden justify-between items-center mb-4">
-              <h1 className="text-2xl font-bold">Tìm kiếm sản phẩm</h1>
+              <h1 className="text-2xl font-bold">{t("title")}</h1>
               <Sheet>
                 <SheetTrigger asChild>
                   <Button variant="outline" size="sm">
                     <SlidersHorizontal className="h-4 w-4 mr-2" />
-                    Bộ lọc
+                    {f("title")}
                   </Button>
                 </SheetTrigger>
                 <SheetContent side="left" className="w-[300px] sm:w-[400px]">
@@ -140,7 +143,7 @@ function SearchContent() {
                 <form onSubmit={handleSearch} className="flex w-full mb-6">
                   <Input
                     type="search"
-                    placeholder="Tìm kiếm sản phẩm..."
+                    placeholder={t("placeholder")}
                     className="w-full"
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
@@ -152,11 +155,11 @@ function SearchContent() {
               </div>
 
               <div className="hidden md:block mb-6">
-                <h1 className="text-2xl font-bold mb-4">Tìm kiếm sản phẩm</h1>
+                <h1 className="text-2xl font-bold mb-4">{t("title")}</h1>
                 <form onSubmit={handleSearch} className="flex w-full">
                   <Input
                     type="search"
-                    placeholder="Tìm kiếm sản phẩm..."
+                    placeholder={t("placeholder")}
                     className="w-full"
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
@@ -169,24 +172,20 @@ function SearchContent() {
 
               {/* Results Count */}
               <div className="mb-4 text-sm text-gray-500">
-                Tìm thấy {filteredProducts.length} sản phẩm
+                {t("results", { count: filteredProducts.length })}
               </div>
 
               {/* Results */}
               {filteredProducts.length === 0 ? (
                 <div className="text-center py-12">
-                  <h2 className="text-xl font-medium">
-                    Không tìm thấy sản phẩm
-                  </h2>
-                  <p className="text-gray-500 mt-2">
-                    Hãy thử điều chỉnh bộ lọc hoặc từ khóa tìm kiếm
-                  </p>
+                  <h2 className="text-xl font-medium">{t("noResults")}</h2>
+                  <p className="text-gray-500 mt-2">{t("noResultsDesc")}</p>
                   <Button
                     variant="outline"
                     className="mt-4"
                     onClick={clearAllFilters}
                   >
-                    Xóa tất cả bộ lọc
+                    {f("clearAll")}
                   </Button>
                 </div>
               ) : (
@@ -207,7 +206,7 @@ function SearchContent() {
 
 export default function Search() {
   return (
-    <Suspense fallback={<div>Đang tải...</div>}>
+    <Suspense fallback={<div>Loading...</div>}>
       <SearchContent />
     </Suspense>
   );
