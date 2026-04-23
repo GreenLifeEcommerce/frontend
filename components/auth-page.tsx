@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import React, { useState } from "react";
 import { useAuth } from "@/hooks/use-auth";
 import { useRouter } from "@/i18n/routing";
 import { useTranslations } from "next-intl";
@@ -21,14 +21,6 @@ import Footer from "@/components/footer";
 import { AxiosError } from "axios";
 import { Eye, EyeOff } from "lucide-react";
 
-function getErrorMessage(error: unknown): string {
-  if (error instanceof AxiosError && error.response?.data?.message) {
-    const msg = error.response.data.message;
-    return Array.isArray(msg) ? msg[0] : msg;
-  }
-  if (error instanceof Error) return error.message;
-  return "Đã có lỗi xảy ra";
-}
 
 export default function AuthPage({
   defaultTab = "login",
@@ -39,6 +31,15 @@ export default function AuthPage({
   const router = useRouter();
   const t = useTranslations("Auth");
 
+  function getErrorMessage(error: unknown): string {
+    if (error instanceof AxiosError && error.response?.data?.message) {
+      const msg = error.response.data.message;
+      return Array.isArray(msg) ? msg[0] : msg;
+    }
+    if (error instanceof Error) return error.message;
+    return t("errorOccurred");
+  }
+
   const [loginEmail, setLoginEmail] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
   const [showLoginPassword, setShowLoginPassword] = useState(false);
@@ -47,11 +48,12 @@ export default function AuthPage({
   const [registerPassword, setRegisterPassword] = useState("");
   const [showRegisterPassword, setShowRegisterPassword] = useState(false);
   const [registerPasswordConfirm, setRegisterPasswordConfirm] = useState("");
+  const [showRegisterPasswordConfirm, setShowRegisterPasswordConfirm] = useState(false);
 
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const handleLogin = async (e: React.FormEvent) => {
+  const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setError("");
     setLoading(true);
@@ -65,12 +67,12 @@ export default function AuthPage({
     }
   };
 
-  const handleRegister = async (e: React.FormEvent) => {
+  const handleRegister = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setError("");
 
     if (registerPassword !== registerPasswordConfirm) {
-      setError("Mật khẩu xác nhận không khớp");
+      setError(t("passwordMismatch"));
       return;
     }
 
@@ -112,7 +114,7 @@ export default function AuthPage({
                       id="email"
                       type="email"
                       required
-                      placeholder="Nhập email"
+                      placeholder={t("enterEmail")}
                       value={loginEmail}
                       onChange={(e) => setLoginEmail(e.target.value)}
                     />
@@ -133,7 +135,7 @@ export default function AuthPage({
                         id="password"
                         type={showLoginPassword ? "text" : "password"}
                         required
-                        placeholder="Nhập mật khẩu"
+                        placeholder={t("enterPassword")}
                         value={loginPassword}
                         onChange={(e) => setLoginPassword(e.target.value)}
                         className="pr-10"
@@ -182,7 +184,7 @@ export default function AuthPage({
                     <Input
                       id="reg-name"
                       required
-                      placeholder="Nhập họ và tên của bạn"
+                      placeholder={t("enterName")}
                       value={registerName}
                       onChange={(e) => setRegisterName(e.target.value)}
                     />
@@ -193,7 +195,7 @@ export default function AuthPage({
                       id="reg-email"
                       type="email"
                       required
-                      placeholder="Nhập email"
+                      placeholder={t("enterEmail")}
                       value={registerEmail}
                       onChange={(e) => setRegisterEmail(e.target.value)}
                     />
@@ -205,7 +207,7 @@ export default function AuthPage({
                         id="reg-password"
                         type={showRegisterPassword ? "text" : "password"}
                         required
-                        placeholder="Nhập mật khẩu"
+                        placeholder={t("enterPassword")}
                         value={registerPassword}
                         onChange={(e) => setRegisterPassword(e.target.value)}
                         className="pr-10"
@@ -226,18 +228,33 @@ export default function AuthPage({
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="reg-password-confirm">
-                      Xác nhận mật khẩu
+                      {t("confirmPassword")}
                     </Label>
-                    <Input
-                      id="reg-password-confirm"
-                      type="password"
-                      required
-                      placeholder="Xác nhận mật khẩu"
-                      value={registerPasswordConfirm}
-                      onChange={(e) =>
-                        setRegisterPasswordConfirm(e.target.value)
-                      }
-                    />
+                    <div className="relative">
+                      <Input
+                        id="reg-password-confirm"
+                        type={showRegisterPasswordConfirm ? "text" : "password"}
+                        required
+                        placeholder={t("confirmPasswordPlaceholder")}
+                        value={registerPasswordConfirm}
+                        onChange={(e) =>
+                          setRegisterPasswordConfirm(e.target.value)
+                        }
+                        className="pr-10"
+                      />
+                      <button
+                        type="button"
+                        onClick={() => setShowRegisterPasswordConfirm(!showRegisterPasswordConfirm)}
+                        className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground"
+                        tabIndex={-1}
+                      >
+                        {showRegisterPasswordConfirm ? (
+                          <EyeOff className="h-4 w-4" />
+                        ) : (
+                          <Eye className="h-4 w-4" />
+                        )}
+                      </button>
+                    </div>
                   </div>
                 </CardContent>
                 <CardFooter className="pt-4">
