@@ -108,6 +108,7 @@ export default function AuthPage() {
                       id="email"
                       type="email"
                       required
+                      placeholder="Nhập email"
                       value={loginEmail}
                       onChange={(e) => setLoginEmail(e.target.value)}
                     />
@@ -128,6 +129,7 @@ export default function AuthPage() {
                         id="password"
                         type={showLoginPassword ? "text" : "password"}
                         required
+                        placeholder="Nhập mật khẩu"
                         value={loginPassword}
                         onChange={(e) => setLoginPassword(e.target.value)}
                         className="pr-10"
@@ -176,6 +178,7 @@ export default function AuthPage() {
                     <Input
                       id="reg-name"
                       required
+                      placeholder="Nhập họ và tên của bạn"
                       value={registerName}
                       onChange={(e) => setRegisterName(e.target.value)}
                     />
@@ -186,6 +189,7 @@ export default function AuthPage() {
                       id="reg-email"
                       type="email"
                       required
+                      placeholder="Nhập email"
                       value={registerEmail}
                       onChange={(e) => setRegisterEmail(e.target.value)}
                     />
@@ -197,6 +201,7 @@ export default function AuthPage() {
                         id="reg-password"
                         type={showRegisterPassword ? "text" : "password"}
                         required
+                        placeholder="Nhập mật khẩu"
                         value={registerPassword}
                         onChange={(e) => setRegisterPassword(e.target.value)}
                         className="pr-10"
@@ -223,6 +228,7 @@ export default function AuthPage() {
                       id="reg-password-confirm"
                       type="password"
                       required
+                      placeholder="Xác nhận mật khẩu"
                       value={registerPasswordConfirm}
                       onChange={(e) =>
                         setRegisterPasswordConfirm(e.target.value)
