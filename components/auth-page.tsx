@@ -48,6 +48,7 @@ export default function AuthPage({
   const [registerPassword, setRegisterPassword] = useState("");
   const [showRegisterPassword, setShowRegisterPassword] = useState(false);
   const [registerPasswordConfirm, setRegisterPasswordConfirm] = useState("");
+  const [showRegisterPasswordConfirm, setShowRegisterPasswordConfirm] = useState(false);
 
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
@@ -229,16 +230,31 @@ export default function AuthPage({
                     <Label htmlFor="reg-password-confirm">
                       {t("confirmPassword")}
                     </Label>
-                    <Input
-                      id="reg-password-confirm"
-                      type="password"
-                      required
-                      placeholder={t("confirmPasswordPlaceholder")}
-                      value={registerPasswordConfirm}
-                      onChange={(e) =>
-                        setRegisterPasswordConfirm(e.target.value)
-                      }
-                    />
+                    <div className="relative">
+                      <Input
+                        id="reg-password-confirm"
+                        type={showRegisterPasswordConfirm ? "text" : "password"}
+                        required
+                        placeholder={t("confirmPasswordPlaceholder")}
+                        value={registerPasswordConfirm}
+                        onChange={(e) =>
+                          setRegisterPasswordConfirm(e.target.value)
+                        }
+                        className="pr-10"
+                      />
+                      <button
+                        type="button"
+                        onClick={() => setShowRegisterPasswordConfirm(!showRegisterPasswordConfirm)}
+                        className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground"
+                        tabIndex={-1}
+                      >
+                        {showRegisterPasswordConfirm ? (
+                          <EyeOff className="h-4 w-4" />
+                        ) : (
+                          <Eye className="h-4 w-4" />
+                        )}
+                      </button>
+                    </div>
                   </div>
                 </CardContent>
                 <CardFooter className="pt-4">
