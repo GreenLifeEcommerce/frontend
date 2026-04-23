@@ -75,6 +75,13 @@
     "hasAccount": "Đã có tài khoản?",
     "profileTitle": "Thông tin cá nhân",
     "profileDesc": "Quản lý thông tin tài khoản của bạn",
-    "save": "Lưu thay đổi"
+    "save": "Lưu thay đổi",
+    "confirmPassword": "Xác nhận mật khẩu",
+    "confirmPasswordPlaceholder": "Xác nhận mật khẩu",
+    "enterEmail": "Nhập email",
+    "enterPassword": "Nhập mật khẩu",
+    "enterName": "Nhập họ và tên của bạn",
+    "passwordMismatch": "Mật khẩu xác nhận không khớp",
+    "errorOccurred": "Đã có lỗi xảy ra"
   }
 }
