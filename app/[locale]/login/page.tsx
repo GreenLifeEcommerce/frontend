@@ -30,7 +30,11 @@ function getErrorMessage(error: unknown): string {
   return "Đã có lỗi xảy ra";
 }
 
-export default function AuthPage() {
+export default function AuthPage({
+  defaultTab = "login",
+}: {
+  defaultTab?: "login" | "register";
+}) {
   const { login, register } = useAuth();
   const router = useRouter();
   const t = useTranslations("Auth");
@@ -85,7 +89,7 @@ export default function AuthPage() {
     <>
       <Navbar />
       <div className="container mx-auto flex items-center justify-center min-h-[80vh] py-12 px-4">
-        <Tabs defaultValue="login" className="w-full max-w-md">
+        <Tabs defaultValue={defaultTab} className="w-full max-w-md">
           <TabsList className="grid w-full grid-cols-2">
             <TabsTrigger value="login">{t("loginTitle")}</TabsTrigger>
             <TabsTrigger value="register">{t("registerTitle")}</TabsTrigger>
