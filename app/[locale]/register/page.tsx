@@ -1,11 +1,7 @@
 "use client";
 
-import AuthPage from "../login/page";
+import AuthPage from "@/components/auth-page";
 
 export default function RegisterPage() {
-  return (
-    <div className="flex flex-col min-h-screen">
-      <AuthPage />
-    </div>
-  );
+  return <AuthPage defaultTab="register" />;
 }

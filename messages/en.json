@@ -75,6 +75,13 @@
     "hasAccount": "Already have an account?",
     "profileTitle": "Profile Info",
     "profileDesc": "Manage your account information",
-    "save": "Save Changes"
+    "save": "Save Changes",
+    "confirmPassword": "Confirm password",
+    "confirmPasswordPlaceholder": "Confirm password",
+    "enterEmail": "Enter email",
+    "enterPassword": "Enter password",
+    "enterName": "Enter your full name",
+    "passwordMismatch": "Passwords do not match",
+    "errorOccurred": "An error occurred"
   }
 }
