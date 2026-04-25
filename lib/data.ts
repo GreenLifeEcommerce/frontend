@@ -7,7 +7,7 @@ const products: Product[] = [
     description:
       "Bộ 10 ống hút tre tự nhiên, có thể tái sử dụng nhiều lần, kèm cọ rửa.",
     price: 45000,
-    image: "/placeholder/400x400.svg",
+    image: "/placeholder/onghuttre.png",
     category: "Đồ gia dụng",
   },
   {
@@ -16,7 +16,7 @@ const products: Product[] = [
     description:
       "Bình nước 500ml giữ nhiệt cực tốt, giúp giảm thiểu rác thải nhựa từ chai nước một lần.",
     price: 150000,
-    image: "/placeholder/400x400.svg",
+    image: "/placeholder/binhnuoc.png",
     category: "Phụ kiện",
   },
   {
@@ -25,7 +25,7 @@ const products: Product[] = [
     description:
       "Túi vải Canvas bền đẹp, chịu lực tốt, thay thế hoàn toàn túi nilon.",
     price: 35000,
-    image: "/placeholder/400x400.svg",
+    image: "/placeholder/tuivai.png",
     category: "Phụ kiện",
   },
   {
@@ -34,7 +34,7 @@ const products: Product[] = [
     description:
       "Bàn chải làm từ tre tự nhiên, lông bàn chải mềm mại, phân hủy sinh học.",
     price: 25000,
-    image: "/placeholder/400x400.svg",
+    image: "/placeholder/banchai.png",
     category: "Cá nhân",
   },
   {
@@ -43,7 +43,7 @@ const products: Product[] = [
     description:
       "Bộ 50 hộp cơm làm từ bã mía, an toàn cho sức khỏe, tự phân hủy hoàn toàn.",
     price: 120000,
-    image: "/placeholder/400x400.svg",
+    image: "/placeholder/hopcom.png",
     category: "Đồ gia dụng",
   },
   {
@@ -52,7 +52,7 @@ const products: Product[] = [
     description:
       "Xà bông làm từ tinh dầu tự nhiên, không hóa chất độc hại, bao bì giấy tái chế.",
     price: 65000,
-    image: "/placeholder/400x400.svg",
+    image: "/placeholder/xabong.png",
     category: "Cá nhân",
   },
   {
@@ -61,7 +61,7 @@ const products: Product[] = [
     description:
       "Bộ 4 lót ly làm từ gỗ bần tự nhiên, chống thấm và cách nhiệt tốt.",
     price: 40000,
-    image: "/placeholder/400x400.svg",
+    image: "/placeholder/lotly.png",
     category: "Trang trí",
   },
   {
@@ -70,7 +70,7 @@ const products: Product[] = [
     description:
       "Sổ tay được làm hoàn toàn từ giấy tái chế, thân thiện với môi trường.",
     price: 55000,
-    image: "/placeholder/400x400.svg",
+    image: "/placeholder/sotay.png",
     category: "Văn phòng",
   },
 ];
@@ -80,31 +80,31 @@ const categories: Category[] = [
     id: "1",
     name: "Đồ gia dụng",
     slug: "do-gia-dung",
-    image: "/placeholder/300x300.svg",
+    image: "/placeholder/dogiadung.png",
   },
   {
     id: "2",
     name: "Phụ kiện",
     slug: "phu-kien",
-    image: "/placeholder/300x300.svg",
+    image: "/placeholder/phukien.png",
   },
   {
     id: "3",
     name: "Cá nhân",
     slug: "ca-nhan",
-    image: "/placeholder/300x300.svg",
+    image: "/placeholder/canhan.png",
   },
   {
     id: "4",
     name: "Trang trí",
     slug: "trang-tri",
-    image: "/placeholder/300x300.svg",
+    image: "/placeholder/trangtri.png",
   },
   {
     id: "5",
     name: "Văn phòng",
     slug: "van-phong",
-    image: "/placeholder/300x300.svg",
+    image: "/placeholder/vanphong.png",
   },
 ];
 
