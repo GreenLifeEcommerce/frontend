@@ -23,3 +23,11 @@ export interface User {
 export interface CartItem extends Product {
   quantity: number;
 }
+
+export interface Order {
+  id: string;
+  createdAt: string;
+  totalPrice: number;
+  status: 'pending' | 'shipped' | 'delivered' | 'cancelled';
+  items: CartItem[]; // Bạn có thể chi tiết hơn tùy vào schema
+}

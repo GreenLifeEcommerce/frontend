@@ -153,3 +153,31 @@ export function getCategoryBySlug(slug: string): Category | undefined {
 export function getProductsByCategory(categoryName: string): Product[] {
   return products.filter((product) => product.category === categoryName);
 }
+
+export interface Order {
+  id: string;
+  createdAt: string;
+  totalPrice: number;
+  status: 'pending' | 'shipped' | 'delivered' | 'cancelled';
+}
+
+export const getOrdersByUser = async () => {
+  return [
+    {
+      id: "ORD-2026-001",
+      productName: "Cà phê Robusta",
+      image: "https://picsum.photos/seed/coffee/100/100", // Hình ảnh ngẫu nhiên
+      createdAt: "2026-04-28T09:00:00Z",
+      totalPrice: 250000,
+      status: "delivered",
+    },
+    {
+      id: "ORD-2026-002",
+      productName: "Trà xanh Thái Nguyên",
+      image: "https://picsum.photos/seed/tea/100/100",
+      createdAt: "2026-04-30T15:20:00Z",
+      totalPrice: 180000,
+      status: "pending",
+    },
+  ];
+};

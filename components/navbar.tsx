@@ -38,6 +38,7 @@ export default function Navbar() {
     { href: "/", label: t("home") },
     { href: "/products", label: t("products") },
     { href: "/categories", label: t("categories") },
+    { href: "/orders",label: t("orders") },
   ];
 
   return (

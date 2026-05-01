@@ -30,6 +30,7 @@ const HeroSection = () => {
           <Button asChild size="lg">
             <Link href="/products">{t("cta")}</Link>
           </Button>
+          
         </div>
       </div>
     </section>

@@ -3,6 +3,7 @@
     "home": "Trang chủ",
     "products": "Sản phẩm",
     "categories": "Danh mục",
+    "orders": "Lịch sử đơn hàng",
     "search": "Tìm kiếm",
     "login": "Đăng nhập",
     "register": "Đăng ký",
@@ -83,5 +84,15 @@
     "enterName": "Nhập họ và tên của bạn",
     "passwordMismatch": "Mật khẩu xác nhận không khớp",
     "errorOccurred": "Đã có lỗi xảy ra"
+  },
+  "OrderHistory": {
+    "title": "Đơn hàng của tôi",
+    "orderId": "Mã đơn",
+    "date": "Ngày mua",
+    "total": "Tổng tiền",
+    "status": "Trạng thái",
+    "status_pending": "Chờ xử lý",
+    "status_delivered": "Đã giao",
+    "noOrders": "Bạn chưa có đơn hàng nào."
   }
 }
